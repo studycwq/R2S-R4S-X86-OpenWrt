@@ -123,23 +123,23 @@ jobs:
         gzip --best *.img
         ls -Ahl
         sha256sum openwrt*r2s* | tee R2S-GC404-$(date +%Y-%m-%d)-21.02.sha256sum
-        zip R2S-GC404-$(date +%Y-%m-%d)-21.02-ext4.zip *r2s*ext4*
-        zip R2S-GC404-$(date +%Y-%m-%d)-21.02-sfs.zip *r2s*squashfs*
-        ls -Ahl
+    #    zip R2S-GC404-$(date +%Y-%m-%d)-21.02-ext4.zip *r2s*ext4*
+    #    zip R2S-GC404-$(date +%Y-%m-%d)-21.02-sfs.zip *r2s*squashfs*
+    #    ls -Ahl
     - name: Upload artifact
       uses: actions/upload-artifact@main
       with:
         name: OpenWRT_21.02
         path: ./artifact/
 
-    - name: Create release
-      id: create_release
-      uses: ncipollo/release-action@v1.8.0
-      with:
-        name: OpenWRT-R2S-R4S-X86-21.02.0-RC3
-        allowUpdates: true
-        tag: 21.02.0-rc3
-        commit: master
-        replacesArtifacts: true
-        token: ${{ secrets.workflow_token }}
-        artifacts: ./artifact/*.zip
+    #- name: Create release
+    #  id: create_release
+    #  uses: ncipollo/release-action@v1.8.0
+    #  with:
+    #    name: OpenWRT-R2S-R4S-X86-21.02.0-RC3
+    #    allowUpdates: true
+    #    tag: 21.02.0-rc3
+    #    commit: master
+    #    replacesArtifacts: true
+    #    token: ${{ secrets.workflow_token }}
+    #    artifacts: ./artifact/*.zip
