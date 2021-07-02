@@ -2,11 +2,16 @@
 clear
 
 ### 基础部分 ###
+# patch default ip
+patch -p1 < ../PATCH/base-files-set-default-ipaddr-to-192.168.233.1.patch
+# patch default password
+patch -p1 < ../PATCH/base-files-set-default-password-to-fa.patch
 # 使用 O3 级别的优化
 sed -i 's/Os/O3/g' include/target.mk
 # 更新 Feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+
 # 默认开启 Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 # 移除 SNAPSHOT 标签
