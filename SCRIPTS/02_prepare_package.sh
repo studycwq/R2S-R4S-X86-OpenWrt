@@ -25,6 +25,8 @@ echo "net.netfilter.nf_conntrack_helper = 1" >> ./package/kernel/linux/files/sys
 # 临时补丁
 rm -rf ./toolchain/gcc
 svn co https://github.com/Ansuel/openwrt/branches/gcc-11/toolchain/gcc toolchain/gcc
+rm -rf ./package/libs/elfutils
+svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 
 # MPTCP
 wget -P target/linux/generic/hack-5.4/ https://github.com/Ysurac/openmptcprouter/raw/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch
