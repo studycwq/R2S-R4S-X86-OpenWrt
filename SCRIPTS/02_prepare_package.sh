@@ -23,7 +23,7 @@ sed -i '/mirror02/d' scripts/download.pl
 echo "net.netfilter.nf_conntrack_helper = 1" >> ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # 临时补丁
-#wget -qO - https://github.com/openwrt/openwrt/commit/7fae64.patch | patch -p1
+wget -qO - https://github.com/openwrt/openwrt/pull/4343.patch | patch -p1
 
 # MPTCP
 wget -P target/linux/generic/hack-5.4/ https://github.com/Ysurac/openmptcprouter/raw/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch
